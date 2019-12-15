@@ -2421,7 +2421,7 @@ class TypeInfo(SymbolNode):
     def get(self, name: str) -> 'Optional[SymbolTableNode]':
         for cls in self.mro:
             n = cls.names.get(name)
-            if n:
+            if n and n.type is not None:
                 return n
         return None
 
